@@ -335,32 +335,32 @@ def getExtremumPoint(pointsTable, axis, extremum, secondAxisExtremum, cursor, pr
 
     return extremumPointTable
 
-####### SHOULD BE DELETED SINCE ALREADY IN UMEP !!!
-def locate_py():
-    # get Python version
-    str_ver_qgis = sys.version.split(' ')[0]
+# ####### SHOULD BE DELETED SINCE ALREADY IN UMEP !!!
+# def locate_py():
+#     # get Python version
+#     str_ver_qgis = sys.version.split(' ')[0]
     
-    try:
-        # non-Linux
-        path_py = os.environ["PYTHONHOME"]
-    except Exception:
-        # Linux
-        path_py = sys.executable
+#     try:
+#         # non-Linux
+#         path_py = os.environ["PYTHONHOME"]
+#     except Exception:
+#         # Linux
+#         path_py = sys.executable
 
-    # convert to Path for eaiser processing
-    path_py = Path(path_py)
+#     # convert to Path for eaiser processing
+#     path_py = Path(path_py)
 
-    # pre-defined paths for python executable
-    dict_pybin = {
-        "Darwin": path_py / "bin" / "python3",
-        "Windows": path_py / ("../../bin/pythonw.exe" if version.parse(str_ver_qgis) >= version.parse("3.9.1") else "pythonw.exe"),
-        "Linux": path_py,
-    }
+#     # pre-defined paths for python executable
+#     dict_pybin = {
+#         "Darwin": path_py / "bin" / "python3",
+#         "Windows": path_py / ("../../bin/pythonw.exe" if version.parse(str_ver_qgis) >= version.parse("3.9.1") else "pythonw.exe"),
+#         "Linux": path_py,
+#     }
 
-    # python executable
-    path_pybin = dict_pybin[platform.system()]
+#     # python executable
+#     path_pybin = dict_pybin[platform.system()]
 
-    if path_pybin.exists():
-        return path_pybin
-    else:
-        raise RuntimeError("UMEP cannot locate the Python interpreter used by QGIS!")
+#     if path_pybin.exists():
+#         return path_pybin
+#     else:
+#         raise RuntimeError("UMEP cannot locate the Python interpreter used by QGIS!")

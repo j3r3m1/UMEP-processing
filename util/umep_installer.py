@@ -12,7 +12,7 @@ def locate_py():
 
     try:
         # non-Linux
-        path_py = os.environ["PYTHONHOME"]
+        path_py = os.environ["PYTHONPATH"]
     except Exception:
         # Linux
         path_py = sys.executable
