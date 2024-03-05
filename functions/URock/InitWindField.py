@@ -2240,12 +2240,16 @@ def manageSuperimposition(cursor,
           {13};
           {10};
           {11};
-          DROP TABLE IF EXISTS {9};
-          CREATE TABLE {9}
+          DROP TABLE IF EXISTS TEMPO;
+          CREATE TABLE TEMPO
               AS SELECT   a.{2}, a.{3}, a.{4}, a.{5}, a.{6}, a.{7}, a.{8}
               FROM     {0} AS a LEFT JOIN {1} AS b
                        ON a.{2} = b.{2} AND a.{3} = b.{3}
-              WHERE    b.{2} IS NULL
+              WHERE    b.{2} IS NULL;
+          DROP TABLE IF EXISTS {9};
+          CREATE TABLE {9}
+              AS SELECT *
+              FROM TEMPO
               UNION ALL
               SELECT    c.{2}, c.{3}, c.{4}, c.{5}, c.{6}, c.{7}, c.{8}
               FROM     {1} AS c
